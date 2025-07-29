@@ -1,0 +1,142 @@
+29/7/2025 -- 08:51:48 - <Notice> - This is Suricata version 6.0.10 RELEASE running in USER mode
+29/7/2025 -- 08:51:48 - <Info> - CPUs/cores online: 20
+29/7/2025 -- 08:51:48 - <Info> - fast output device (regular) initialized: fast.log
+29/7/2025 -- 08:51:48 - <Info> - eve-log output device (regular) initialized: eve.json
+29/7/2025 -- 08:51:48 - <Info> - stats output device (regular) initialized: stats.log
+29/7/2025 -- 08:51:48 - <Warning> - [ERRCODE: SC_ERR_NO_RULES(42)] - No rule files match the pattern /etc/suricata/rules/suricata.rules
+29/7/2025 -- 08:51:48 - <Warning> - [ERRCODE: SC_ERR_NO_RULES_LOADED(43)] - 1 rule files specified, but no rules were loaded!
+29/7/2025 -- 08:51:48 - <Info> - Threshold config parsed: 0 rule(s) found
+29/7/2025 -- 08:51:48 - <Info> - 0 signatures processed. 0 are IP-only rules, 0 are inspecting packet payload, 0 inspect application layer, 0 are decoder event only
+29/7/2025 -- 08:51:48 - <Info> - Using unix socket file '/var/run/suricata-command.socket'
+29/7/2025 -- 08:51:48 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unix socket: UNIX socket bind(/var/run/suricata-command.socket) error: Address already in use
+29/7/2025 -- 08:51:48 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unable to create unix command socket
+29/7/2025 -- 08:51:48 - <Notice> - all 21 packet processing threads, 4 management threads initialized, engine started.
+29/7/2025 -- 08:51:48 - <Info> - Starting file run for tmp/uploaded.pcap
+29/7/2025 -- 08:51:48 - <Info> - No packets with invalid checksum, assuming checksum offloading is NOT used
+29/7/2025 -- 08:51:48 - <Info> - pcap file tmp/uploaded.pcap end of file reached (pcap err code 0)
+29/7/2025 -- 08:51:48 - <Notice> - Signal Received.  Stopping engine.
+29/7/2025 -- 08:51:48 - <Info> - time elapsed 0.115s
+29/7/2025 -- 08:51:48 - <Notice> - Pcap-file module read 1 files, 9950 packets, 7181688 bytes
+29/7/2025 -- 08:51:48 - <Info> - Alerts: 0
+29/7/2025 -- 08:51:48 - <Info> - cleaning up signature grouping structure... complete
+29/7/2025 -- 08:54:03 - <Notice> - This is Suricata version 6.0.10 RELEASE running in USER mode
+29/7/2025 -- 08:54:03 - <Info> - CPUs/cores online: 20
+29/7/2025 -- 08:54:03 - <Info> - fast output device (regular) initialized: fast.log
+29/7/2025 -- 08:54:03 - <Info> - eve-log output device (regular) initialized: eve.json
+29/7/2025 -- 08:54:03 - <Info> - stats output device (regular) initialized: stats.log
+29/7/2025 -- 08:54:03 - <Warning> - [ERRCODE: SC_ERR_NO_RULES(42)] - No rule files match the pattern /etc/suricata/rules/suricata.rules
+29/7/2025 -- 08:54:03 - <Warning> - [ERRCODE: SC_ERR_NO_RULES_LOADED(43)] - 1 rule files specified, but no rules were loaded!
+29/7/2025 -- 08:54:03 - <Info> - Threshold config parsed: 0 rule(s) found
+29/7/2025 -- 08:54:03 - <Info> - 0 signatures processed. 0 are IP-only rules, 0 are inspecting packet payload, 0 inspect application layer, 0 are decoder event only
+29/7/2025 -- 08:54:03 - <Info> - Using unix socket file '/var/run/suricata-command.socket'
+29/7/2025 -- 08:54:03 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unix socket: UNIX socket bind(/var/run/suricata-command.socket) error: Address already in use
+29/7/2025 -- 08:54:03 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unable to create unix command socket
+29/7/2025 -- 08:54:03 - <Notice> - all 21 packet processing threads, 4 management threads initialized, engine started.
+29/7/2025 -- 08:54:03 - <Info> - Starting file run for tmp/uploaded.pcap
+29/7/2025 -- 08:54:03 - <Info> - No packets with invalid checksum, assuming checksum offloading is NOT used
+29/7/2025 -- 08:54:03 - <Info> - pcap file tmp/uploaded.pcap end of file reached (pcap err code 0)
+29/7/2025 -- 08:54:03 - <Notice> - Signal Received.  Stopping engine.
+29/7/2025 -- 08:54:04 - <Info> - time elapsed 0.166s
+29/7/2025 -- 08:54:04 - <Notice> - Pcap-file module read 1 files, 9950 packets, 7181688 bytes
+29/7/2025 -- 08:54:04 - <Info> - Alerts: 0
+29/7/2025 -- 08:54:04 - <Info> - cleaning up signature grouping structure... complete
+29/7/2025 -- 08:57:33 - <Notice> - This is Suricata version 6.0.10 RELEASE running in USER mode
+29/7/2025 -- 08:57:33 - <Info> - CPUs/cores online: 20
+29/7/2025 -- 08:57:33 - <Info> - fast output device (regular) initialized: fast.log
+29/7/2025 -- 08:57:33 - <Info> - eve-log output device (regular) initialized: eve.json
+29/7/2025 -- 08:57:33 - <Info> - stats output device (regular) initialized: stats.log
+29/7/2025 -- 08:57:33 - <Warning> - [ERRCODE: SC_ERR_NO_RULES_LOADED(43)] - 1 rule files specified, but no rules were loaded!
+29/7/2025 -- 08:57:33 - <Info> - Threshold config parsed: 0 rule(s) found
+29/7/2025 -- 08:57:33 - <Info> - 0 signatures processed. 0 are IP-only rules, 0 are inspecting packet payload, 0 inspect application layer, 0 are decoder event only
+29/7/2025 -- 08:57:33 - <Info> - Using unix socket file '/var/run/suricata-command.socket'
+29/7/2025 -- 08:57:33 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unix socket: UNIX socket bind(/var/run/suricata-command.socket) error: Address already in use
+29/7/2025 -- 08:57:33 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unable to create unix command socket
+29/7/2025 -- 08:57:33 - <Notice> - all 21 packet processing threads, 4 management threads initialized, engine started.
+29/7/2025 -- 08:57:33 - <Info> - Starting file run for tmp/uploaded.pcap
+29/7/2025 -- 08:57:33 - <Info> - No packets with invalid checksum, assuming checksum offloading is NOT used
+29/7/2025 -- 08:57:33 - <Info> - pcap file tmp/uploaded.pcap end of file reached (pcap err code 0)
+29/7/2025 -- 08:57:33 - <Notice> - Signal Received.  Stopping engine.
+29/7/2025 -- 08:57:33 - <Info> - time elapsed 0.169s
+29/7/2025 -- 08:57:33 - <Notice> - Pcap-file module read 1 files, 9950 packets, 7181688 bytes
+29/7/2025 -- 08:57:33 - <Info> - Alerts: 0
+29/7/2025 -- 08:57:33 - <Info> - cleaning up signature grouping structure... complete
+29/7/2025 -- 08:58:15 - <Notice> - This is Suricata version 6.0.10 RELEASE running in USER mode
+29/7/2025 -- 08:58:15 - <Info> - CPUs/cores online: 20
+29/7/2025 -- 08:58:15 - <Info> - fast output device (regular) initialized: fast.log
+29/7/2025 -- 08:58:15 - <Info> - eve-log output device (regular) initialized: eve.json
+29/7/2025 -- 08:58:15 - <Info> - stats output device (regular) initialized: stats.log
+29/7/2025 -- 08:58:15 - <Warning> - [ERRCODE: SC_ERR_NO_RULES_LOADED(43)] - 1 rule files specified, but no rules were loaded!
+29/7/2025 -- 08:58:15 - <Info> - Threshold config parsed: 0 rule(s) found
+29/7/2025 -- 08:58:15 - <Info> - 0 signatures processed. 0 are IP-only rules, 0 are inspecting packet payload, 0 inspect application layer, 0 are decoder event only
+29/7/2025 -- 08:58:15 - <Info> - Using unix socket file '/var/run/suricata-command.socket'
+29/7/2025 -- 08:58:15 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unix socket: UNIX socket bind(/var/run/suricata-command.socket) error: Address already in use
+29/7/2025 -- 08:58:15 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unable to create unix command socket
+29/7/2025 -- 08:58:15 - <Notice> - all 21 packet processing threads, 4 management threads initialized, engine started.
+29/7/2025 -- 08:58:15 - <Info> - Starting file run for tmp/uploaded.pcap
+29/7/2025 -- 08:58:15 - <Info> - No packets with invalid checksum, assuming checksum offloading is NOT used
+29/7/2025 -- 08:58:15 - <Info> - pcap file tmp/uploaded.pcap end of file reached (pcap err code 0)
+29/7/2025 -- 08:58:15 - <Notice> - Signal Received.  Stopping engine.
+29/7/2025 -- 08:58:15 - <Info> - time elapsed 0.158s
+29/7/2025 -- 08:58:15 - <Notice> - Pcap-file module read 1 files, 9950 packets, 7181688 bytes
+29/7/2025 -- 08:58:15 - <Info> - Alerts: 0
+29/7/2025 -- 08:58:15 - <Info> - cleaning up signature grouping structure... complete
+29/7/2025 -- 08:59:18 - <Notice> - This is Suricata version 6.0.10 RELEASE running in USER mode
+29/7/2025 -- 08:59:18 - <Info> - CPUs/cores online: 20
+29/7/2025 -- 08:59:18 - <Info> - fast output device (regular) initialized: fast.log
+29/7/2025 -- 08:59:18 - <Info> - eve-log output device (regular) initialized: eve.json
+29/7/2025 -- 08:59:18 - <Info> - stats output device (regular) initialized: stats.log
+29/7/2025 -- 08:59:18 - <Warning> - [ERRCODE: SC_ERR_NO_RULES_LOADED(43)] - 1 rule files specified, but no rules were loaded!
+29/7/2025 -- 08:59:18 - <Info> - Threshold config parsed: 0 rule(s) found
+29/7/2025 -- 08:59:18 - <Info> - 0 signatures processed. 0 are IP-only rules, 0 are inspecting packet payload, 0 inspect application layer, 0 are decoder event only
+29/7/2025 -- 08:59:18 - <Info> - Using unix socket file '/var/run/suricata-command.socket'
+29/7/2025 -- 08:59:18 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unix socket: UNIX socket bind(/var/run/suricata-command.socket) error: Address already in use
+29/7/2025 -- 08:59:18 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unable to create unix command socket
+29/7/2025 -- 08:59:18 - <Notice> - all 21 packet processing threads, 4 management threads initialized, engine started.
+29/7/2025 -- 08:59:18 - <Info> - Starting file run for tmp/uploaded.pcap
+29/7/2025 -- 08:59:18 - <Info> - No packets with invalid checksum, assuming checksum offloading is NOT used
+29/7/2025 -- 08:59:18 - <Info> - pcap file tmp/uploaded.pcap end of file reached (pcap err code 0)
+29/7/2025 -- 08:59:18 - <Notice> - Signal Received.  Stopping engine.
+29/7/2025 -- 08:59:18 - <Info> - time elapsed 0.151s
+29/7/2025 -- 08:59:18 - <Notice> - Pcap-file module read 1 files, 9950 packets, 7181688 bytes
+29/7/2025 -- 08:59:18 - <Info> - Alerts: 0
+29/7/2025 -- 08:59:18 - <Info> - cleaning up signature grouping structure... complete
+29/7/2025 -- 09:03:25 - <Notice> - This is Suricata version 6.0.10 RELEASE running in USER mode
+29/7/2025 -- 09:03:25 - <Info> - CPUs/cores online: 20
+29/7/2025 -- 09:03:25 - <Info> - fast output device (regular) initialized: fast.log
+29/7/2025 -- 09:03:25 - <Info> - eve-log output device (regular) initialized: eve.json
+29/7/2025 -- 09:03:25 - <Info> - stats output device (regular) initialized: stats.log
+29/7/2025 -- 09:03:29 - <Info> - 1 rule files processed. 44526 rules successfully loaded, 0 rules failed
+29/7/2025 -- 09:03:29 - <Info> - Threshold config parsed: 0 rule(s) found
+29/7/2025 -- 09:03:30 - <Info> - 44529 signatures processed. 947 are IP-only rules, 5114 are inspecting packet payload, 38259 inspect application layer, 108 are decoder event only
+29/7/2025 -- 09:03:36 - <Info> - Using unix socket file '/var/run/suricata-command.socket'
+29/7/2025 -- 09:03:36 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unix socket: UNIX socket bind(/var/run/suricata-command.socket) error: Address already in use
+29/7/2025 -- 09:03:36 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unable to create unix command socket
+29/7/2025 -- 09:03:36 - <Notice> - all 21 packet processing threads, 4 management threads initialized, engine started.
+29/7/2025 -- 09:03:36 - <Info> - Starting file run for tmp/uploaded.pcap
+29/7/2025 -- 09:03:36 - <Info> - No packets with invalid checksum, assuming checksum offloading is NOT used
+29/7/2025 -- 09:03:36 - <Info> - pcap file tmp/uploaded.pcap end of file reached (pcap err code 0)
+29/7/2025 -- 09:03:36 - <Notice> - Signal Received.  Stopping engine.
+29/7/2025 -- 09:03:36 - <Info> - time elapsed 0.194s
+29/7/2025 -- 09:03:36 - <Notice> - Pcap-file module read 1 files, 9950 packets, 7181688 bytes
+29/7/2025 -- 09:03:36 - <Info> - Alerts: 70
+29/7/2025 -- 09:03:36 - <Info> - cleaning up signature grouping structure... complete
+29/7/2025 -- 09:19:59 - <Notice> - This is Suricata version 6.0.10 RELEASE running in USER mode
+29/7/2025 -- 09:19:59 - <Info> - CPUs/cores online: 20
+29/7/2025 -- 09:20:00 - <Info> - fast output device (regular) initialized: fast.log
+29/7/2025 -- 09:20:00 - <Info> - eve-log output device (regular) initialized: eve.json
+29/7/2025 -- 09:20:00 - <Info> - stats output device (regular) initialized: stats.log
+29/7/2025 -- 09:20:03 - <Info> - 1 rule files processed. 44526 rules successfully loaded, 0 rules failed
+29/7/2025 -- 09:20:04 - <Info> - Threshold config parsed: 0 rule(s) found
+29/7/2025 -- 09:20:04 - <Info> - 44529 signatures processed. 947 are IP-only rules, 5114 are inspecting packet payload, 38259 inspect application layer, 108 are decoder event only
+29/7/2025 -- 09:20:10 - <Info> - Using unix socket file '/var/run/suricata-command.socket'
+29/7/2025 -- 09:20:10 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unix socket: UNIX socket bind(/var/run/suricata-command.socket) error: Address already in use
+29/7/2025 -- 09:20:10 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unable to create unix command socket
+29/7/2025 -- 09:20:10 - <Notice> - all 21 packet processing threads, 4 management threads initialized, engine started.
+29/7/2025 -- 09:20:10 - <Info> - Starting file run for tmp/uploaded.pcap
+29/7/2025 -- 09:20:10 - <Info> - No packets with invalid checksum, assuming checksum offloading is NOT used
+29/7/2025 -- 09:20:10 - <Info> - pcap file tmp/uploaded.pcap end of file reached (pcap err code 0)
+29/7/2025 -- 09:20:10 - <Notice> - Signal Received.  Stopping engine.
+29/7/2025 -- 09:20:10 - <Info> - time elapsed 0.218s
+29/7/2025 -- 09:20:10 - <Notice> - Pcap-file module read 1 files, 9950 packets, 7181688 bytes
+29/7/2025 -- 09:20:10 - <Info> - Alerts: 70
+29/7/2025 -- 09:20:10 - <Info> - cleaning up signature grouping structure... complete

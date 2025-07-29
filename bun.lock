@@ -4,7 +4,7 @@
     "": {
       "name": "práctica-5",
       "devDependencies": {
-        "@types/bun": "latest",
+        "@types/bun": "^1.2.19",
       },
       "peerDependencies": {
         "typescript": "^5",

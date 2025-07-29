@@ -6,6 +6,12 @@ class PcapAnalyzer {
     ip_host_pairs: { ip: string; host: string | null }[];
     mac_addresses: { address: string; manufacturer: string | null }[];
     protocol_hierarchy: { protocol: string; frames: number; bytes: number }[];
+    suricata: {
+      eve: string | null;
+      fast: string | null;
+      stats: string | null;
+      suricata: string | null;
+    };
   } | null = null;
 
   constructor(private pcapFile: string) {
@@ -14,11 +20,12 @@ class PcapAnalyzer {
 
   private async initialize() {
     try {
-      const [capinfos, ip_host_pairs, mac_addresses, protocol_hierarchy] = await Promise.all([
+      const [capinfos, ip_host_pairs, mac_addresses, protocol_hierarchy, suricata] = await Promise.all([
         this.getCapinfos(),
         this.getIpHostPairs(),
         this.getMacAddresses(),
         this.getProtocolHierarchy(),
+        this.getSuricataAnalysis(),
       ]);
 
       this.result = {
@@ -26,6 +33,7 @@ class PcapAnalyzer {
         ip_host_pairs,
         mac_addresses,
         protocol_hierarchy,
+        suricata
       };
     } catch (err) {
       console.error("❌ Error initializing analysis:", err);
@@ -169,14 +177,34 @@ class PcapAnalyzer {
 
   async getSuricataAnalysis() {
     try {
-      const suricataOutput = await $`suricata -r ${this.pcapFile} -l /tmp/suricata_logs -c /etc/suricata/suricata.yaml`.text();
-      console.log("Suricata analysis completed successfully.");
-      return suricataOutput;
+      // Ejecutar Suricata
+      await $`suricata -r ${this.pcapFile} -l tmp/suricata_logs -c /etc/suricata/suricata.yaml`;
+
+      console.log("✅ Suricata analysis completed.");
+
+      // Leer archivos de logs
+      const eve = await Bun.file('tmp/suricata_logs/eve.json').text().catch(() => null);
+      const fast = await Bun.file('tmp/suricata_logs/fast.log').text().catch(() => null);
+      const stats = await Bun.file('tmp/suricata_logs/stats.log').text().catch(() => null);
+      const suricata = await Bun.file('tmp/suricata_logs/suricata.log').text().catch(() => null);
+
+      return {
+        eve,
+        fast,
+        stats,
+        suricata,
+      };
     } catch (err) {
       console.error("❌ Error running Suricata analysis:", err);
-      return null;
+      return {
+        eve: null,
+        fast: null,
+        stats: null,
+        suricata: null,
+      };
     }
   }
+
 
   async dropFile() {
     try {

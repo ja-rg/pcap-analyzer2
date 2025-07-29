@@ -1,0 +1,39 @@
+28/7/2025 -- 18:05:43 - <Notice> - This is Suricata version 6.0.10 RELEASE running in USER mode
+28/7/2025 -- 18:05:43 - <Info> - CPUs/cores online: 20
+28/7/2025 -- 18:05:43 - <Info> - fast output device (regular) initialized: fast.log
+28/7/2025 -- 18:05:43 - <Info> - eve-log output device (regular) initialized: eve.json
+28/7/2025 -- 18:05:43 - <Info> - stats output device (regular) initialized: stats.log
+28/7/2025 -- 18:05:43 - <Warning> - [ERRCODE: SC_ERR_NO_RULES(42)] - No rule files match the pattern /etc/suricata/rules/suricata.rules
+28/7/2025 -- 18:05:43 - <Warning> - [ERRCODE: SC_ERR_NO_RULES_LOADED(43)] - 1 rule files specified, but no rules were loaded!
+28/7/2025 -- 18:05:43 - <Info> - Threshold config parsed: 0 rule(s) found
+28/7/2025 -- 18:05:43 - <Info> - 0 signatures processed. 0 are IP-only rules, 0 are inspecting packet payload, 0 inspect application layer, 0 are decoder event only
+28/7/2025 -- 18:05:44 - <Info> - Using unix socket file '/var/run/suricata-command.socket'
+28/7/2025 -- 18:05:44 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unix socket: UNIX socket bind(/var/run/suricata-command.socket) error: Address already in use
+28/7/2025 -- 18:05:44 - <Warning> - [ERRCODE: SC_ERR_INITIALIZATION(45)] - Unable to create unix command socket
+28/7/2025 -- 18:05:44 - <Notice> - all 21 packet processing threads, 4 management threads initialized, engine started.
+28/7/2025 -- 18:05:44 - <Info> - Starting file run for ipp.pcap
+28/7/2025 -- 18:05:44 - <Info> - pcap file ipp.pcap end of file reached (pcap err code 0)
+28/7/2025 -- 18:05:44 - <Notice> - Signal Received.  Stopping engine.
+28/7/2025 -- 18:05:44 - <Info> - time elapsed 0.133s
+28/7/2025 -- 18:05:44 - <Warning> - [ERRCODE: SC_ERR_INVALID_CHECKSUM(11)] - 1/1th of packets have an invalid checksum, consider setting pcap-file.checksum-checks variable to no or use '-k none' option on command line.
+28/7/2025 -- 18:05:44 - <Notice> - Pcap-file module read 1 files, 279 packets, 248656 bytes
+28/7/2025 -- 18:05:44 - <Info> - Alerts: 0
+28/7/2025 -- 18:05:44 - <Info> - cleaning up signature grouping structure... complete
+28/7/2025 -- 18:07:49 - <Notice> - This is Suricata version 6.0.10 RELEASE running in USER mode
+28/7/2025 -- 18:07:49 - <Info> - CPUs/cores online: 20
+28/7/2025 -- 18:07:49 - <Info> - fast output device (regular) initialized: fast.log
+28/7/2025 -- 18:07:49 - <Info> - eve-log output device (regular) initialized: eve.json
+28/7/2025 -- 18:07:49 - <Info> - stats output device (regular) initialized: stats.log
+28/7/2025 -- 18:07:49 - <Warning> - [ERRCODE: SC_ERR_NO_RULES(42)] - No rule files match the pattern /etc/suricata/rules/suricata.rules
+28/7/2025 -- 18:07:49 - <Info> - 2 rule files processed. 3 rules successfully loaded, 0 rules failed
+28/7/2025 -- 18:07:49 - <Info> - Threshold config parsed: 0 rule(s) found
+28/7/2025 -- 18:07:49 - <Info> - 3 signatures processed. 1 are IP-only rules, 1 are inspecting packet payload, 1 inspect application layer, 0 are decoder event only
+28/7/2025 -- 18:07:49 - <Info> - Using unix socket file '/var/run/suricata-command.socket'
+28/7/2025 -- 18:07:49 - <Notice> - all 21 packet processing threads, 4 management threads initialized, engine started.
+28/7/2025 -- 18:07:49 - <Info> - Starting file run for ipp.pcap
+28/7/2025 -- 18:07:49 - <Info> - pcap file ipp.pcap end of file reached (pcap err code 0)
+28/7/2025 -- 18:07:49 - <Notice> - Signal Received.  Stopping engine.
+28/7/2025 -- 18:07:49 - <Info> - time elapsed 0.100s
+28/7/2025 -- 18:07:49 - <Notice> - Pcap-file module read 1 files, 279 packets, 248656 bytes
+28/7/2025 -- 18:07:49 - <Info> - Alerts: 6
+28/7/2025 -- 18:07:50 - <Info> - cleaning up signature grouping structure... complete
