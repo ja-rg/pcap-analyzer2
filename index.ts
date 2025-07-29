@@ -209,6 +209,7 @@ class PcapAnalyzer {
   async dropFile() {
     try {
       await $`rm ${this.pcapFile}`;
+      await $`rm tmp/suricata_logs/*`;
       console.log(`✅ File ${this.pcapFile} deleted successfully.`);
     } catch (err) {
       console.error("❌ Error deleting file:", err);
