@@ -221,7 +221,7 @@ class PcapAnalyzer {
 // === SERVER ===
 Bun.serve({
   port: 3000,
-
+  hostname: "0.0.0.0",
   async fetch(req) {
     if (req.method === "OPTIONS") {
       return new Response(null, {
@@ -264,8 +264,12 @@ Bun.serve({
       });
     } catch (err) {
       console.error("❌ Failed to handle POST:", err);
-      return new Response("Server error", { status: 500 });
+      return new Response(JSON.stringify({ error: "Server error" }), {
+        status: 500,
+        headers: corsHeaders({ "Content-Type": "application/json" }),
+      });
     }
+
   },
 });
 
@@ -274,7 +278,7 @@ function corsHeaders(extra: Record<string, string> = {}) {
   return {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
     ...extra,
   };
 }
