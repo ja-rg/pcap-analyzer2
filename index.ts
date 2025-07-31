@@ -151,21 +151,50 @@ class PcapAnalyzer {
 
   private async getProtocolHierarchy() {
     const protoOutput = await $`tshark -r ${this.pcapFile} -q -z io,phs`.text();
-    const lines = protoOutput.split("\n").filter(line => line.includes("frames:") && line.includes("bytes:"));
-    const hierarchy: { protocol: string; frames: number; bytes: number }[] = [];
+
+    const lines = protoOutput
+      .split("\n")
+      .filter(line => line.includes("frames:") && line.includes("bytes:"));
+
+    type ProtoNode = {
+      protocol: string;
+      frames: number;
+      bytes: number;
+      children: ProtoNode[];
+    };
+
+    const root: ProtoNode = { protocol: "root", frames: 0, bytes: 0, children: [] };
+    const stack: { indent: number; node: ProtoNode }[] = [{ indent: -1, node: root }];
 
     for (const line of lines) {
       const match = line.match(/^(\s*)([^\s]+)\s+frames:(\d+)\s+bytes:(\d+)/);
-      if (match !== null) {
-        const protocol = match[2]!;
-        const frames = parseInt(match[3]!, 10);
-        const bytes = parseInt(match[4]!, 10);
-        hierarchy.push({ protocol, frames, bytes });
+
+      if (!match) continue; // si no hace match, saltamos
+
+      // ✅ Asignamos con `!` para evitar errores de TS
+      const spaces = match[1]!;
+      const protocol = match[2]!;
+      const framesStr = match[3]!;
+      const bytesStr = match[4]!;
+
+      const indent = spaces.length;
+      const frames = parseInt(framesStr, 10);
+      const bytes = parseInt(bytesStr, 10);
+
+      const node: ProtoNode = { protocol, frames, bytes, children: [] };
+
+      while (stack.length && stack[stack.length - 1]!.indent >= indent) {
+        stack.pop();
       }
+
+      // ✅ Aquí también aseguramos que nunca será undefined
+      stack[stack.length - 1]!.node.children.push(node);
+      stack.push({ indent, node });
     }
 
-    return hierarchy;
+    return root.children;
   }
+
 
   async getResult() {
     // Ensure result is ready
@@ -220,7 +249,7 @@ class PcapAnalyzer {
 
 // === SERVER ===
 Bun.serve({
-  port: 3000,
+  port: 3001,
   hostname: "0.0.0.0",
   async fetch(req) {
     if (req.method === "OPTIONS") {
