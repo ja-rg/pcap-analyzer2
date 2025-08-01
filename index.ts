@@ -40,13 +40,15 @@ Bun.serve({
 
       // 4. Delete file from disk using terminal
       await analyzer.dropFile();
+      const response = JSON.stringify(result);      
 
       // 5. Return JSON result
-      return new Response(JSON.stringify(result), {
+      return new Response(response, {
         headers: corsHeaders({ "Content-Type": "application/json" }),
       });
     } catch (err) {
       console.error("❌ Failed to handle POST:", err);
+
       return new Response(JSON.stringify({ error: "Server error" }), {
         status: 500,
         headers: corsHeaders({ "Content-Type": "application/json" }),

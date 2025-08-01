@@ -305,6 +305,8 @@ export class PcapAnalyzer {
         for (let idx = 0; idx < lines.length; idx++) {
             // Follow each TCP stream
             const follow = await $`tshark -r ${this.pcapFile} -q -z follow,tcp,ascii,${idx}`.text();
+            Bun.write("response.txt", follow);
+
 
             // Try to extract basic metadata
             const headerMatch = follow.match(/Stream\s+(\d+).*?TCP\s+Conversation\s+between\s+([\d\.]+):(\d+)\s+and\s+([\d\.]+):(\d+)/s);
