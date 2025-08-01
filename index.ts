@@ -58,3 +58,4 @@ Bun.serve({
   },
 });
 
+console.log(`Ready to Accept Requests ${Math.floor(Math.random() * (5 - 0 + 1))}`);
