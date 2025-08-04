@@ -1,3 +1,4 @@
+import { join } from "path";
 import { PcapAnalyzer } from "./class/PCAPAnalyzer";
 import { corsHeaders } from "./lib/HelperCORS";
 
@@ -11,6 +12,51 @@ Bun.serve({
         status: 204,
         headers: corsHeaders(),
       });
+    }
+
+    if (req.method === "GET") {
+      // Obtener la ruta solicitada
+      const url = new URL(req.url);
+      let pathname = url.pathname === "/" ? "/index.html" : url.pathname;
+
+      // Construir la ruta física dentro de dist
+      const filePath = join("dist", pathname);
+
+      try {
+        const file = Bun.file(filePath);
+
+        if (!(await file.exists())) {
+          return new Response("Not found", { status: 404 });
+        }
+
+        // Detectar tipo MIME básico
+        const ext = filePath.split(".").pop();
+        const mimeTypes = {
+          html: "text/html",
+          css: "text/css",
+          js: "application/javascript",
+          json: "application/json",
+          png: "image/png",
+          jpg: "image/jpeg",
+          jpeg: "image/jpeg",
+          svg: "image/svg+xml",
+          ico: "image/x-icon",
+        };
+
+        // If ext is undefined, return 404
+        if (!ext) {
+          return new Response("Not found", { status: 404 });
+        }
+
+        const contentType = mimeTypes[ext as keyof typeof mimeTypes] || "application/octet-stream";
+
+        return new Response(file.stream(), {
+          headers: corsHeaders({ "Content-Type": contentType }),
+          status: 200,
+        });
+      } catch {
+        return new Response("Not found", { status: 404 });
+      }
     }
 
     if (req.method !== "POST") {
@@ -40,7 +86,7 @@ Bun.serve({
 
       // 4. Delete file from disk using terminal
       await analyzer.dropFile();
-      const response = JSON.stringify(result);      
+      const response = JSON.stringify(result);
 
       // 5. Return JSON result
       return new Response(response, {
