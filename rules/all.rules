@@ -1,0 +1,39 @@
+# ID: scan-syn
+# Detectar escaneo SYN de puertos
+alert tcp any any -> $HOME_NET any (msg:"SCAN - SYN port scan detected"; flags:S; threshold:type both, track by_src, count 20, seconds 3; sid:1000001; rev:1;)
+
+# ID: scan-null
+# Detectar escaneo NULL
+alert tcp any any -> $HOME_NET any (msg:"SCAN - NULL scan detected"; flags:0; sid:1000002; rev:1;)
+
+# ID: scan-xmas
+# Detectar escaneo Xmas
+alert tcp any any -> $HOME_NET any (msg:"SCAN - Xmas scan detected"; flags:FPU; sid:1000003; rev:1;)
+
+# ID: exploit-smb
+# Intento de SMB exploit
+alert tcp any any -> $HOME_NET 445 (msg:"EXPLOIT - SMB suspicious activity"; flow:to_server,established; content:"|FF 53 4D 42|"; depth:4; sid:1000004; rev:1;)
+
+# ID: bruteforce-rdp
+# Intento de RDP fuerza bruta
+alert tcp any any -> $HOME_NET 3389 (msg:"BRUTEFORCE - Possible RDP brute force"; threshold:type both, track by_src, count 10, seconds 60; sid:1000005; rev:1;)
+
+# ID: sql-injection
+# Intento de SQL injection
+alert tcp any any -> $HOME_NET 80 (msg:"WEB - SQL Injection attempt"; content:"union select"; nocase; sid:1000006; rev:1;)
+
+# ID: xss
+# Intento de XSS
+alert tcp any any -> $HOME_NET 80 (msg:"WEB - XSS attempt"; content:"<script>"; nocase; sid:1000007; rev:1;)
+
+# ID: cmd-injection
+# Intento de Command Injection
+alert tcp any any -> $HOME_NET 80 (msg:"WEB - Command Injection attempt"; content:"|3b 20 72 6d 20 2d 72 66|"; nocase; sid:1000008; rev:1;)
+
+# ID: malware-exe
+# Posible transferencia de malware EXE
+alert tcp any any -> $HOME_NET any (msg:"MALWARE - EXE file download"; content:"MZ"; offset:0; depth:2; sid:1000009; rev:1;)
+
+# ID: dns-tunnel
+# Uso de DNS tunneling
+alert udp any any -> $HOME_NET 53 (msg:"DNS - Possible tunneling detected"; content:"."; depth:1; pcre:"/^[a-z0-9]{30,}\..+/"; sid:1000010; rev:1;)

@@ -3,7 +3,6 @@
  */
 
 import { $ } from "bun";
-import { fstat } from "fs";
 
 export class PcapAnalyzer {
     private result: {
@@ -33,6 +32,7 @@ export class PcapAnalyzer {
             dport?: string;
             text: string;
         }[];
+        custom_alerts: { date: string; time: string; sid: string; msg: string }[];
     } | null = null;
 
     constructor(private pcapFile: string) {
@@ -48,7 +48,8 @@ export class PcapAnalyzer {
                 protocol_hierarchy,
                 suricata,
                 tcp_streams,
-                udp_streams
+                udp_streams,
+                custom_alerts
             ] = await Promise.all([
                 this.getCapinfos(),
                 this.getIpHostPairs(),
@@ -56,7 +57,8 @@ export class PcapAnalyzer {
                 this.getProtocolHierarchy(),
                 this.getSuricataAnalysis(),
                 this.getTcpStreams(),
-                this.getUdpStreams()
+                this.getUdpStreams(),
+                this.getCustomAlerts()
             ]);
 
             this.result = {
@@ -66,7 +68,8 @@ export class PcapAnalyzer {
                 protocol_hierarchy,
                 suricata,
                 tcp_streams,
-                udp_streams
+                udp_streams,
+                custom_alerts
             };
         } catch (err) {
             console.error("❌ Error initializing analysis:", err);
@@ -115,12 +118,12 @@ export class PcapAnalyzer {
             if (isPrivateIp(ip)) return null;
 
             // Heurística 3: DNS inversa rápida (puede bloquear un poco)
-            try {
-                const rdns = require("child_process")
-                    .execSync(`dig -x ${ip} +short`, { encoding: "utf-8" })
-                    .trim();
-                if (rdns) return rdns.replace(/\.$/, ""); // quitar el punto final de FQDN
-            } catch { }
+            /*             try {
+                            const rdns = require("child_process")
+                                .execSync(`dig -x ${ip} +short`, { encoding: "utf-8" })
+                                .trim();
+                            if (rdns) return rdns.replace(/\.$/, ""); // quitar el punto final de FQDN
+                        } catch { } */
 
             return null;
         };
@@ -225,13 +228,13 @@ export class PcapAnalyzer {
     async getSuricataAnalysis() {
         const logs = {
             eve: 'tmp/suricata_logs/eve.json',
-            fast: 'tmp/suricata_logs/fast.json',
+            fast: 'tmp/suricata_logs/fast.log',
             stats: 'tmp/suricata_logs/stats.log',
             suricata: 'tmp/suricata_logs/suricata.log',
         };
         try {
             // Ejecutar Suricata
-            await $`suricata -r ${this.pcapFile} -l tmp/suricata_logs -c /etc/suricata/suricata.yaml`;
+            await $`suricata -r ${this.pcapFile} -l tmp/suricata_logs -S rules/custom.rules -c /etc/suricata/suricata.yaml`;
 
             // Leer archivos de logs
             const eve = await Bun.file(logs.eve).text().catch(() => null);
@@ -314,4 +317,22 @@ export class PcapAnalyzer {
         console.log("UDP ready.");
         return streams;
     }
+
+    private async getCustomAlerts() {
+        const fastLogPath = 'tmp/suricata_logs/fast.log';
+        try {
+            const fastLog = await Bun.file(fastLogPath).text();
+            const alerts = fastLog
+                .split("\n")
+                .filter(line => line.trim().length > 0)
+                .map(line => {
+                    const [date, time, , sid, msg] = line.split(" ");
+                    return { date: date || "", time: time || "", sid: sid || "", msg: msg || line };
+                });
+            return alerts;
+        } catch {
+            return [];
+        }
+    }
+
 }
