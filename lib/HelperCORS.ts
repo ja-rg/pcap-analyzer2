@@ -1,3 +1,7 @@
+/**
+ * HelperCORS.ts
+ */
+
 // === Helpers ===
 export function corsHeaders(extra: Record<string, string> = {}) {
     return {

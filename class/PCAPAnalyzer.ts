@@ -1,3 +1,7 @@
+/**
+ * PCAPAnalyzer.ts
+ */
+
 import { $ } from "bun";
 import { fstat } from "fs";
 
