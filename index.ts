@@ -1,3 +1,7 @@
+/**
+ * Main entry point for the PCAP analysis server (index.ts)
+ */
+
 import { PcapAnalyzer } from "./class/PCAPAnalyzer";
 import { corsHeaders } from "./lib/HelperCORS";
 
