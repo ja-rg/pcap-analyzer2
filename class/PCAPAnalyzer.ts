@@ -271,7 +271,7 @@ export class PcapAnalyzer {
     }
 
     private async getTcpStreams() {
-        //return [];
+        return [];
         // Get list of TCP conversations
         const convOutput = await $`tshark -r ${this.pcapFile} -q -z conv,tcp`.text();
         const lines = convOutput.split("\n").filter(l => l.includes("<->"));
